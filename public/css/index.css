@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Arial", sans-serif;
   background: linear-gradient(135deg, #1a1c20 0%, #2a2d34 100%);
@@ -5,13 +11,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
+  padding: 140px;
 }
 .container {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 20px;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 100%;
@@ -49,7 +55,7 @@ input[type="tel"]:focus {
 }
 
 input[type="text"]:hover,
-input[type="tel"]:hover {
+input[type="tel"]:focus {
   background-color: rgba(255, 255, 255, 0.1);
   outline: none;
 }
