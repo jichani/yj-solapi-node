@@ -7,6 +7,11 @@
     "start": "node routes/server.js",
     "dev": "nodemon routes/server.js"
   },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "languageName": "nodejs",
   "keywords": [],
   "author": "",
   "license": "ISC",
