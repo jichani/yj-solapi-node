@@ -1,9 +1,11 @@
+// src/routes/server.js
 const dotenv = require("dotenv");
 dotenv.config();
 
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const solapiRoutes = require("./solapiRoutes.js");
 
 const app = express();
 
@@ -18,6 +20,9 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.json({ message: "Hello YJ-student!" });
 });
+
+// 메시지 라우트 추가
+app.use("/api", solapiRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
