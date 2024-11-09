@@ -1,4 +1,4 @@
-// routes/messageRoutes.js
+// routes/solapiRoutes.js
 const express = require("express");
 const router = express.Router();
 const { SolapiMessageService } = require("solapi");
