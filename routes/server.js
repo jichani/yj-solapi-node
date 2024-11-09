@@ -5,6 +5,7 @@ dotenv.config();
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path");
 const solapiRoutes = require("./solapiRoutes.js");
 
 const app = express();
@@ -14,14 +15,13 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static("public"));
 
 // 정적 파일 제공 (public 폴더)
 app.use(express.static("public"));
 
 // 루트 경로 핸들러
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "../public/html/index.html"));
 });
 
 // 메시지 라우트 추가
