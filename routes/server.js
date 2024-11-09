@@ -16,13 +16,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
-// 라우트 설정
+// 정적 파일 제공 (public 폴더)
+app.use(express.static("public"));
+
+// 루트 경로 핸들러
 app.get("/", (req, res) => {
-  res.json({ message: "Hello YJ-student!" });
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 // 메시지 라우트 추가
 app.use("/api", solapiRoutes);
+
+// 404 처리
+app.use((req, res) => {
+  res.status(404).json({ message: "Not Found" });
+});
+
+// 에러 핸들러
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Internal Server Error" });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
