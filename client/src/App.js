@@ -26,7 +26,7 @@ function App() {
 
       const data = { name: userName, tel: userTel, text, btn_url: btnUrl };
 
-      const response = await fetch("http://localhost:8080/api/send-message", {
+      const response = await fetch("/api/send-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
